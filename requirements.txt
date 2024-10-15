@@ -1,0 +1,7 @@
+streamlit
+PyPDF2
+cohere
+pinecone-client
+python-dotenv
+IPython
+ipykernel
