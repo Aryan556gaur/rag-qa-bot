@@ -1,12 +1,16 @@
 import streamlit as st
 import PyPDF2
+import os
 import cohere
-from pinecone import Pinecone
+from pinecone import Pinecone, ServerlessSpec
 import textwrap
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Initialize Cohere and Pinecone
-co = cohere.Client(api_key = 's1gcHF8Dhz2ct0iyHoQYPOReVKHzBapb9BMTrLiK',)
-pc = Pinecone(api_key= '8c3a1f42-35f5-4778-81d7-1c4e0b334326')
+co = cohere.Client(api_key = os.getenv('COHERE_API_KEY'))
+pc = Pinecone(api_key= os.getenv('PINECONE_API_KEY'))
 index = pc.Index('example-index')
 
 def create_index():
